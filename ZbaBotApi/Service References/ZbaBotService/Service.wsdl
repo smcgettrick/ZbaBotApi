@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="PostHearings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="hearings" type="tns:ArrayOfZBAHearing" />
+            <s:element minOccurs="0" maxOccurs="1" name="postKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfZBAHearing">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ZBAHearing" nillable="true" type="tns:ZBAHearing" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ZBAHearing">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CalendarNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApplicationNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZoningCategory" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParcelType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Proposal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Owner" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Applicant" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attorney" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HearingDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="AppealDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FullAddress" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Lat" nillable="true" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Long" nillable="true" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TaxDelinquent" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PostHearingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PostHearingsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOPAAccountByStreetAddress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOPAAccountByStreetAddressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOPAAccountByStreetAddressResult" type="tns:OPAAccount" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OPAAccount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnitNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SuggestedProperties" type="tns:ArrayOfProperty" />
+          <s:element minOccurs="0" maxOccurs="1" name="SuggestedAddresses" type="tns:ArrayOfSuggestedAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxRecord" type="tns:TaxRecord" />
+          <s:element minOccurs="0" maxOccurs="1" name="Valuation" type="tns:Valuation" />
+          <s:element minOccurs="0" maxOccurs="1" name="Owner" type="tns:Owner" />
+          <s:element minOccurs="0" maxOccurs="1" name="Details" type="tns:Details" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProperty">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Property" nillable="true" type="tns:Property" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Property">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OwnerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SalePrice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SaleDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSuggestedAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SuggestedAddress" nillable="true" type="tns:SuggestedAddress" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SuggestedAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AddressName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TaxRecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TaxInfoYears" type="tns:ArrayOfTaxInfoYear" />
+          <s:element minOccurs="1" maxOccurs="1" name="RevenueDown" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTaxInfoYear">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TaxInfoYear" nillable="true" type="tns:TaxInfoYear" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TaxInfoYear">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Year" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Principal" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Interest" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Penalty" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Other" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Total" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lien" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Solicitor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Valuation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ValuationYears" type="tns:ArrayOfValuationYear" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfValuationYear">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ValuationYear" nillable="true" type="tns:ValuationYear" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ValuationYear">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Year" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MarketValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AssessedLandTaxable" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AssessedImprovementTaxable" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AssessedLandExempt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AssessedImprovementExempt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalAssessment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GrossTax" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Owner">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MailingAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MailingAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MailingCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MailingState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MailingZip" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Details">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LandArea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImprovementArea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Zoning" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZoningDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Condition" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CouncilDistrict" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BeginPoint" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MarketValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RealEstateTax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalAssessment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AssessedLandTaxable" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AssessedImprovementTaxable" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AssessedLandExempt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AssessedImprovementExempt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SaleDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SalePrice" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOPAAccountByAccountNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOPAAccountByAccountNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOPAAccountByAccountNumberResult" type="tns:OPAAccount" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOPAAccountByAccountOwner">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="owner" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOPAAccountByAccountOwnerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOPAAccountByAccountOwnerResult" type="tns:OPAAccount" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="PostHearingsSoapIn">
+    <wsdl:part name="parameters" element="tns:PostHearings" />
+  </wsdl:message>
+  <wsdl:message name="PostHearingsSoapOut">
+    <wsdl:part name="parameters" element="tns:PostHearingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOPAAccountByStreetAddressSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOPAAccountByStreetAddress" />
+  </wsdl:message>
+  <wsdl:message name="GetOPAAccountByStreetAddressSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOPAAccountByStreetAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOPAAccountByAccountNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOPAAccountByAccountNumber" />
+  </wsdl:message>
+  <wsdl:message name="GetOPAAccountByAccountNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOPAAccountByAccountNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOPAAccountByAccountOwnerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOPAAccountByAccountOwner" />
+  </wsdl:message>
+  <wsdl:message name="GetOPAAccountByAccountOwnerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOPAAccountByAccountOwnerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="PostHearings">
+      <wsdl:input message="tns:PostHearingsSoapIn" />
+      <wsdl:output message="tns:PostHearingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOPAAccountByStreetAddress">
+      <wsdl:input message="tns:GetOPAAccountByStreetAddressSoapIn" />
+      <wsdl:output message="tns:GetOPAAccountByStreetAddressSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOPAAccountByAccountNumber">
+      <wsdl:input message="tns:GetOPAAccountByAccountNumberSoapIn" />
+      <wsdl:output message="tns:GetOPAAccountByAccountNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOPAAccountByAccountOwner">
+      <wsdl:input message="tns:GetOPAAccountByAccountOwnerSoapIn" />
+      <wsdl:output message="tns:GetOPAAccountByAccountOwnerSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="PostHearings">
+      <soap:operation soapAction="http://tempuri.org/PostHearings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOPAAccountByStreetAddress">
+      <soap:operation soapAction="http://tempuri.org/GetOPAAccountByStreetAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOPAAccountByAccountNumber">
+      <soap:operation soapAction="http://tempuri.org/GetOPAAccountByAccountNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOPAAccountByAccountOwner">
+      <soap:operation soapAction="http://tempuri.org/GetOPAAccountByAccountOwner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="PostHearings">
+      <soap12:operation soapAction="http://tempuri.org/PostHearings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOPAAccountByStreetAddress">
+      <soap12:operation soapAction="http://tempuri.org/GetOPAAccountByStreetAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOPAAccountByAccountNumber">
+      <soap12:operation soapAction="http://tempuri.org/GetOPAAccountByAccountNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOPAAccountByAccountOwner">
+      <soap12:operation soapAction="http://tempuri.org/GetOPAAccountByAccountOwner" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://banditproject.org/ZBABot/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://banditproject.org/ZBABot/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

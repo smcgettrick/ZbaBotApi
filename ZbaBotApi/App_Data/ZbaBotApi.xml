@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ZbaBotApi</name>
+    </assembly>
+    <members>
+        <member name="M:ZbaBotApi.Controllers.AccountsController.GetAccountByAccountNumber(System.String)">
+            <summary>
+            Get OPA Account by Account Number.
+            </summary>
+            <param name="accountNumber">The OPA Account Number.</param>
+            <returns>The OPA Account associated with the Account Number.</returns>
+        </member>
+        <member name="M:ZbaBotApi.Controllers.AccountsController.GetAccountByOwnerName(System.String)">
+            <summary>
+            Get OPA Account by Owner Name.
+            </summary>
+            <param name="ownerName">The Owner Name.</param>
+            <returns>The OPA Account associated with the Owner Name.</returns>
+        </member>
+        <member name="M:ZbaBotApi.Controllers.AccountsController.GetAccountByAddress(System.String)">
+            <summary>
+            Get OPA Account by Address.
+            </summary>
+            <param name="address">The Address.</param>
+            <returns>The OPA Account associated with the Address.</returns>
+        </member>
+    </members>
+</doc>
