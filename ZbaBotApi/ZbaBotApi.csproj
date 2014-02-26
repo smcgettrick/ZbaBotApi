@@ -159,7 +159,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
-    <Compile Include="Controllers\DocumentaitonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -178,9 +177,7 @@
     <Compile Include="Models\Owner.cs" />
     <Compile Include="Models\Property.cs" />
     <Compile Include="Models\Repositories\AccountRepository.cs" />
-    <Compile Include="Models\Repositories\DocumentationRepository.cs" />
     <Compile Include="Models\Repositories\IAccountRepository.cs" />
-    <Compile Include="Models\Repositories\IDocumentationRepository.cs" />
     <Compile Include="Models\TaxInfo.cs" />
     <Compile Include="Models\TaxRecord.cs" />
     <Compile Include="Models\ValuationInfo.cs" />
@@ -192,7 +189,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="XmlCommentDocumentationProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\ZbaBotApi.xml">
@@ -212,8 +208,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Service References\ZbaBotService\Service.wsdl" />
     <Content Include="Service References\ZbaBotService\ZbaBotApi.ZbaBotService.GetOPAAccountByAccountNumberResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
